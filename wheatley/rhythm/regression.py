@@ -224,7 +224,7 @@ class RegressionRhythm(Rhythm):
             expected_blow_time = self.index_to_blow_time(row_number, place)
             diff = self.real_time_to_blow_time(real_time) - expected_blow_time
 
-            self.logger.info(f"{bell} off by %.3f places" % diff)
+            self.logger.debug(f"{bell} off by %.3f places" % diff)
 
             # If this was the first bell, then overwrite the start_time to update
             # the regression line
