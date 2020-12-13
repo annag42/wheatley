@@ -1,5 +1,9 @@
 # 0.6.0 (W.I.P.)
 - Change place notation parsing to comply with the CompLib and the XML specification.
+- Make the error messages friendlier
+  - Moved some overly verbose `INFO` messages into `DEBUG`
+  - Capped all numbers to 3 decimal places
+  - Made debug 'wait' logging slightly less verbose
 - Allow support of the new tower sizes - `5`, `14` and `16`
 - Allow Wheatley to ring with any (positive) number of cover bells
 - Add full static typing, and fix some `None`-related bugs
