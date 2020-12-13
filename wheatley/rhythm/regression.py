@@ -118,7 +118,7 @@ class RegressionRhythm(Rhythm):
         self.data_set.append((blow_time, real_time, weight))
 
         for (b, r, w) in self.data_set:
-            self.logger.debug(f"  {b}\t{r}\t{w}")
+            self.logger.debug("Datapoint: %4.1f %8.3f %.3f" % (b, r, w))
 
         # Only calculate the regression line if there are at least two datapoints, otherwise
         # just store the datapoint
@@ -135,7 +135,7 @@ class RegressionRhythm(Rhythm):
             self._blow_interval = lerp(new_blow_interval, self._blow_interval,
                                        regression_preferred_inertia)
 
-            self.logger.debug(f"Bell interval: {self._blow_interval}")
+            self.logger.debug("Bell interval: %.3f" % self._blow_interval)
 
             # Filter out datapoints with extremely low weights
             self.data_set = list(filter(lambda d: d[2] > WEIGHT_REJECTION_THRESHOLD, self.data_set))
@@ -220,7 +220,7 @@ class RegressionRhythm(Rhythm):
             expected_blow_time = self.index_to_blow_time(row_number, place)
             diff = self.real_time_to_blow_time(real_time) - expected_blow_time
 
-            self.logger.info(f"{bell} off by {diff} places")
+            self.logger.info(f"{bell} off by %.3f places" % diff)
 
             # If this was the first bell, then overwrite the start_time to update
             # the regression line
